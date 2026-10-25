@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Larry Mangubat | Portfolio</title>
+
+<style>
+:root {
+    --bg: #101a20;
+    --card: #19272f;
+    --text: #f4f8f7;
+    --muted: #b8c9ca;
+    --gold: #f2b56b;
+    --teal: #68d5c5;
+    --border: #34515a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 7%;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+}
+
+nav a {
+    color: var(--muted);
+}
+
+nav a:hover {
+    color: var(--teal);
+}
+
+section {
+    padding: 80px 7%;
+    scroll-margin-top: 80px;
+}
+
+.hero {
+    min-height: 85vh;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 45px;
+    align-items: center;
+    background: radial-gradient(
+        circle at top left,
+        #23424a,
+        transparent 60%
+    );
+}
+
+.tag {
+    display: inline-block;
+    color: var(--teal);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 7px 16px;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+h1 {
+    font-size: clamp(44px, 7vw, 76px);
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.gradient {
+    color: var(--gold);
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.photo-frame {
+    padding: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: 0 0 35px rgba(104, 213, 197, 0.12);
+    max-width: 340px;
+    margin: auto;
+}
+
+.photo-frame img {
+    width: 100%;
+    display: block;
+    border-radius: 17px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    background: var(--gold);
+    color: #172027;
+    border-radius: 10px;
+    font-weight: bold;
+    border: 1px solid var(--gold);
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn.outline {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border);
+}
+
+.kicker {
+    color: var(--teal);
+    font-family: monospace;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+h2 {
+    font-size: clamp(34px, 5vw, 52px);
+    margin-bottom: 15px;
+}
+
+.underline {
+    width: 95px;
+    height: 5px;
+    border-radius: 10px;
+    background: linear-gradient(
+        90deg, var(--gold), var(--teal)
+    );
+    margin-bottom: 25px;
+}
+
+.lead {
+    color: var(--muted);
+    font-size: 18px;
+    max-width: 800px;
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit, minmax(240px, 1fr)
+    );
+    gap: 20px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 26px;
+    transition: 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--teal);
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: var(--muted);
+}
+
+.featured {
+    border-top: 4px solid var(--gold);
+}
+
+.project-number {
+    color: var(--teal);
+    font-family: monospace;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.skill {
+    display: inline-block;
+    background: #233c42;
+    color: #e0f8f1;
+    border: 1px solid #52736e;
+    border-radius: 30px;
+    padding: 6px 13px;
+    font-size: 14px;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.project-link:hover {
+    color: var(--teal);
+}
+
+.contact-card {
+    max-width: 750px;
+}
+
+.email {
+    color: var(--teal);
+    overflow-wrap: anywhere;
+}
+
+footer {
+    padding: 25px 7%;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+}
+
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    background: var(--gold);
+    color: #101a20;
+    border: none;
+    border-radius: 50%;
+    font-size: 23px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+@media (max-width: 760px) {
+    header {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    nav {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 55px;
+    }
+
+    .photo-frame {
+        max-width: 290px;
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a class="logo" href="#home">Larry<span>.</span></a>
+
+    <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+<!-- HOME -->
+<section class="hero" id="home">
+
+    <div>
+        <div class="tag">● HELLO, I'M LARRY</div>
+
+        <h1>
+            Larry<br>
+            <span class="gradient">Mangubat.</span>
+        </h1>
+
+        <p>
+            I'm a student who enjoys exploring technology,
+            learning programming, and creating useful digital
+            solutions. I believe every project is an opportunity
+            to improve my skills and turn ideas into reality.
+        </p>
+
+        <p>
+            <span style="color:var(--teal)">
+                CURRENT INTERESTS:
+            </span>
+            Web development, mobile applications, artificial
+            intelligence, and computer networking.
+        </p>
+
+        <div class="buttons">
+            <a class="btn" href="#projects">
+                Explore My Projects →
+            </a>
+
+            <a class="btn outline" href="#contact">
+                Contact Me
+            </a>
+        </div>
+    </div>
+
+    <div class="photo-frame">
+        <img
+            src="1.jpg"
+            alt="Portrait of Larry Mangubat"
+        >
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+    <p class="kicker">01 / GET TO KNOW ME</p>
+    <h2>About Me</h2>
+    <div class="underline"></div>
+
+    <p class="lead">
+        My name is Larry Mangubat. I am a student interested
+        in information technology, software development,
+        and creative problem-solving. I enjoy learning new
+        concepts and applying them through school activities
+        and practical projects.
+    </p>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>My Journey</h3>
+            <p>
+                I continue to develop my technical knowledge
+                through lessons, practice, and project work.
+                Each experience helps me become more confident
+                in understanding and using technology.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>My Goals</h3>
+            <p>
+                I want to improve my programming abilities,
+                develop helpful applications, and learn how
+                technology can solve everyday problems
+                in the community.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+
+    <p class="kicker">02 / MY TOOLKIT</p>
+    <h2>Skills & Interests</h2>
+    <div class="underline"></div>
+
+    <p class="lead">
+        These are technologies and skills I am exploring.
+        Update this list to match your actual experience.
+    </p>
+
+    <div class="card" style="margin-bottom:20px">
+        <h3>Web Development</h3>
+
+        <div class="project-tags">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">Responsive Design</span>
+        </div>
+    </div>
+
+    <div class="card" style="margin-bottom:20px">
+        <h3>Technology Interests</h3>
+
+        <div class="project-tags">
+            <span class="skill">Mobile Applications</span>
+            <span class="skill">Artificial Intelligence</span>
+            <span class="skill">Edge AI</span>
+            <span class="skill">Computer Networking</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Personal Skills</h3>
+
+        <div class="project-tags">
+            <span class="skill">Teamwork</span>
+            <span class="skill">Communication</span>
+            <span class="skill">Problem Solving</span>
+            <span class="skill">Continuous Learning</span>
+        </div>
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+
+    <p class="kicker">03 / SELECTED WORK</p>
+    <h2>Featured Projects</h2>
+    <div class="underline"></div>
+
+    <p class="lead">
+        These projects represent my interests in building
+        practical digital solutions for everyday needs
+        and community challenges.
+    </p>
+
+    <div class="grid">
+
+        <!-- FEATURED PROJECT 1 -->
+        <article class="card featured">
+
+            <span class="project-number">
+                FEATURED PROJECT 01
+            </span>
+
+            <h3>Basketball Venue Reservation System</h3>
+
+            <p>
+                A basketball court reservation system concept
+                designed to help players find venues, review
+                available schedules, and organize court bookings
+                more conveniently.
+            </p>
+
+            <div class="project-tags">
+                <span class="skill">Web Application</span>
+                <span class="skill">Reservations</span>
+                <span class="skill">Responsive Design</span>
+            </div>
+
+            <a class="project-link" href="#contact">
+                Ask About This Project →
+            </a>
+
+        </article>
+
+        <!-- FEATURED PROJECT 2 -->
+        <article class="card featured">
+
+            <span class="project-number">
+                FEATURED PROJECT 02
+            </span>
+
+            <h3>Capstone AI Mobile Application</h3>
+
+            <p>
+                Localized web and mobile software integrating
+                Edge AI for real-time disease detection and
+                automated recommendations for local communities.
+            </p>
+
+            <div class="project-tags">
+                <span class="skill">Artificial Intelligence</span>
+                <span class="skill">Edge AI</span>
+                <span class="skill">Mobile Application</span>
+            </div>
+
+            <a class="project-link" href="#contact">
+                Ask About This Project →
+            </a>
+
+        </article>
+
+        <!-- PROJECT 3 -->
+        <article class="card">
+
+            <span class="project-number">
+                PROJECT 03
+            </span>
+
+            <h3>Student Portfolio Website</h3>
+
+            <p>
+                A personal website built to introduce myself,
+                showcase my skills, and present my projects
+                in one organized and accessible place.
+            </p>
+
+            <div class="project-tags">
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">JavaScript</span>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+    <p class="kicker">04 / LET'S CONNECT</p>
+    <h2>Contact Me</h2>
+    <div class="underline"></div>
+
+    <div class="card contact-card">
+
+        <h3>Have a question or idea?</h3>
+
+        <p>
+            Thank you for visiting my portfolio!
+            Feel free to contact me if you would like to
+            discuss my projects or connect with me.
+        </p>
+
+        <p style="margin:20px 0">
+            Email:
+            <a
+                class="email"
+                href="mailto:mangubat187@gmail.com"
+            >
+                mangubat187@gmail.com
+            </a>
+        </p>
+
+        <a
+            class="btn"
+            href="mailto:mangubat187@gmail.com"
+        >
+            Send Me an Email ↗
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+    <p>Designed and created by Larry Mangubat.</p>
+    <p>© <span id="year"></span> All rights reserved.</p>
+</footer>
+
+<button id="topBtn" aria-label="Back to top">
+    ↑
+</button>
+
+<script>
+/* Automatically update the copyright year */
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+/* Show the back-to-top button when scrolling */
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", function () {
+    topBtn.style.display =
+        window.scrollY > 300 ? "block" : "none";
+});
+
+/* Scroll smoothly to the top */
+topBtn.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+</script>
+
+</body>
+</html>
